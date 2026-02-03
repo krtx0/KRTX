@@ -1,12 +1,22 @@
 [
+{
+    "title": "Cake Website",
+    "mobile": "assets/images/cake-mobile.png",
+    "desktop": "assets/images/cake-pc.png"
+  },
   {
-    "title": "GYM WEBSITE",
+    "title": "GYM Website",
     "mobile": "assets/images/gym-mobile.png",
     "desktop": "assets/images/gym-pc.png"
   },
   {
-    "title": "ASTROLOGY WEBSITE",
-    "mobile": "assets/images/cake-shop-mobile.png",
-    "desktop": "assets/images/cake-shop-pc.png"
+    "title": "GYM 1 Website",
+    "mobile": "assets/images/gym-mobile-1.png",
+    "desktop": "assets/images/gym-pc-1.png"
+  },
+  {
+    "title": "Toy Store Website",
+    "mobile": "assets/images/toy-mobile.png",
+    "desktop": "assets/images/toy-pc.png"
   }
 ]
