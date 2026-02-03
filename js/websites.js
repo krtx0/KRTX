@@ -60,3 +60,39 @@ window.addEventListener("resize", () => {
     render();
   }
 });
+
+const bottomNav = document.getElementById("bottomNav");
+
+let lastY = 0;
+let ticking = false;
+
+// DESKTOP / TRACKPAD
+window.addEventListener("wheel", (e) => {
+  if (e.deltaY > 0) {
+    // scrolling DOWN
+    bottomNav.classList.add("hide");
+  } else if (e.deltaY < 0) {
+    // scrolling UP
+    bottomNav.classList.remove("hide");
+  }
+}, { passive: true });
+
+// MOBILE TOUCH
+window.addEventListener("touchstart", (e) => {
+  lastY = e.touches[0].clientY;
+}, { passive: true });
+
+window.addEventListener("touchmove", (e) => {
+  const currentY = e.touches[0].clientY;
+  const diff = lastY - currentY;
+
+  if (diff > 10) {
+    // swipe up → hide
+    bottomNav.classList.add("hide");
+  } else if (diff < -10) {
+    // swipe down → show
+    bottomNav.classList.remove("hide");
+  }
+
+  lastY = currentY;
+}, { passive: true });

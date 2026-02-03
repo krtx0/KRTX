@@ -8,6 +8,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="components/navbar.js" defer></script>
 <script src="components/footer.js" defer></script>
+<script src="style.css" defer></script>
 <script>
 tailwind.config = {
   theme: {
@@ -21,10 +22,20 @@ tailwind.config = {
   }
 }
 </script>
-
 <style>
 .hide-scrollbar::-webkit-scrollbar { display: none; }
+
+/* 👇 ADD THIS */
+.bottom-nav {
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.bottom-nav.hide {
+  transform: translateY(100%);
+}
 </style>
+
 </head>
 
 <body class="bg-midnight text-white h-screen overflow-hidden">
@@ -38,7 +49,8 @@ tailwind.config = {
 </main>
 
 <!-- BOTTOM NAV -->
-<nav class="fixed bottom-0 left-0 right-0 bg-charcoal border-t border-white/10">
+<nav id="bottomNav" class="bottom-nav fixed bottom-0 left-0 right-0 bg-charcoal border-t border-white/10">
+
   <div class="max-w-4xl mx-auto px-4 py-3">
 
     <!-- Title + Toggle -->
@@ -55,7 +67,8 @@ tailwind.config = {
 
     <!-- Prev / Next -->
     <div class="flex justify-between items-center">
-      <button id="prevBtn" class="text-gold text-2xl">←</button>
+      <button id="prevBtn"class="text-gold text-5xl font-extrabold px-6 py-3">←</button>
+
       <div class="flex gap-2 bg-midnight rounded-full p-1">
         <button id="mobileBtn"
           class="px-3 py-1 text-xs rounded-full bg-gold text-midnight">
@@ -66,13 +79,12 @@ tailwind.config = {
           💻
         </button>
       </div>
-      <button id="nextBtn" class="text-gold text-2xl">→</button>
+      <button id="nextBtn" class="text-gold text-5xl font-extrabold px-6 py-3">→</button>
     </div>
 
   </div>
 </nav>
 
-<script src="js/websites.js?vs="0.1""></script>
+<script src="js/websites.js"></script>
 </body>
 </html>
-
