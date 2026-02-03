@@ -132,11 +132,11 @@ class CustomNavbar extends HTMLElement {
 
         <nav class="nav-links">
           <a href="index.html" class="nav-link">Home</a>
-          <a href="#services" class="nav-link" onclick="this.closest('custom-navbar').shadowRoot.querySelector('.nav-links').classList.remove('open')">Services</a>
+          <a href="index.html#services" class="nav-link" onclick="this.closest('custom-navbar').shadowRoot.querySelector('.nav-links').classList.remove('open')">Services</a>
           <a href="portfolio.html" class="nav-link">Work</a>
           <a href="websites.html" class="nav-link">Websites</a>
-          <a href="#about" class="nav-link" onclick="this.closest('custom-navbar').shadowRoot.querySelector('.nav-links').classList.remove('open')">About</a>
-          <a href="#contact" class="nav-link" onclick="this.closest('custom-navbar').shadowRoot.querySelector('.nav-links').classList.remove('open')">Contact</a>
+          <a href="index.html#about" class="nav-link" onclick="this.closest('custom-navbar').shadowRoot.querySelector('.nav-links').classList.remove('open')">About</a>
+          <a href="index.html#contact" class="nav-link" onclick="this.closest('custom-navbar').shadowRoot.querySelector('.nav-links').classList.remove('open')">Contact</a>
         </nav>
 
         <button class="mobile-menu-button" aria-label="Toggle menu">
@@ -219,4 +219,5 @@ class CustomNavbar extends HTMLElement {
 
 if (!customElements.get('custom-navbar')) {
   customElements.define('custom-navbar', CustomNavbar);
+
 }
