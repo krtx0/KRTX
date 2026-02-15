@@ -53,6 +53,9 @@ class CustomNavbar extends HTMLElement {
         .nav-link:hover {
           color: #00f0ff;
         }
+:host {
+  z-index: 10000;
+}
 
         .nav-link::after {
           content: '';
@@ -94,6 +97,7 @@ class CustomNavbar extends HTMLElement {
   .nav-links {
     display: none;
     position: absolute;
+    z-index: 9999;
     top: 100%;
     left: 0;
     right: 0;
@@ -105,7 +109,6 @@ class CustomNavbar extends HTMLElement {
     padding: 2rem 1.5rem;
     gap: 1.5rem;
 
-    z-index: 50;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   }
 
@@ -124,7 +127,7 @@ class CustomNavbar extends HTMLElement {
               transform: translateY(0);
             }
           }
-        }
+        
       </style>
 
       <div class="navbar-container">
@@ -219,5 +222,4 @@ class CustomNavbar extends HTMLElement {
 
 if (!customElements.get('custom-navbar')) {
   customElements.define('custom-navbar', CustomNavbar);
-
 }
