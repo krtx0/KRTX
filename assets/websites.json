@@ -18,5 +18,20 @@
     "title": "Toy Store Website",
     "mobile": "assets/images/toy-mobile.png",
     "desktop": "assets/images/toy-pc.png"
+  },
+  {
+    "title": "Travel Agency Website",
+    "mobile": "assets/images/travel-pc.png",
+    "desktop": "assets/images/travel-pc.png"
+  },
+  {
+    "title": "Travel Agency 2 Website",
+    "mobile": "assets/images/travel2-pc.png",
+    "desktop": "assets/images/travel2-pc.png"
+  },
+  {
+    "title": "Dentist Website",
+    "mobile": "assets/images/dentist-pc.png",
+    "desktop": "assets/images/dentist-pc.png"
   }
 ]
