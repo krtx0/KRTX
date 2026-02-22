@@ -43,9 +43,11 @@ tailwind.config = {
 <!-- VIEWER -->
 <main id="viewer" class="h-full overflow-y-auto pb-28 hide-scrollbar">
 <custom-navbar></custom-navbar>
-  <img id="showcaseImage"
-       class="w-full object-cover block"
-       alt="">
+  <iframe
+  id="showcaseFrame" 
+  class="w-full h-full border-none "
+></iframe>
+
 </main>
 
 <!-- BOTTOM NAV -->
@@ -53,37 +55,31 @@ tailwind.config = {
 
   <div class="max-w-4xl mx-auto px-4 py-3">
 
-    <!-- Title + Toggle -->
-    <div class="flex items-center justify-center gap-4 mb-2">
+    <div class="flex items-center justify-between">
+
+      <!-- LEFT -->
+      <button id="prevBtn"
+        class="text-gold text-4xl font-extrabold px-4 py-2">
+        ←
+      </button>
+
+      <!-- CENTER TITLE -->
       <span id="showcaseTitle"
-            class="text-sm font-medium tracking-wide uppercase">
+        class="text-sm font-medium tracking-wide uppercase text-center">
         —
       </span>
 
-      <!-- View Toggle -->
-      
+      <!-- RIGHT -->
+      <button id="nextBtn"
+        class="text-gold text-4xl font-extrabold px-4 py-2">
+        →
+      </button>
 
-    </div>
-
-    <!-- Prev / Next -->
-    <div class="flex justify-between items-center">
-      <button id="prevBtn"class="text-gold text-5xl font-extrabold px-6 py-3">←</button>
-
-      <div class="flex gap-2 bg-midnight rounded-full p-1">
-        <button id="mobileBtn"
-          class="px-3 py-1 text-xs rounded-full bg-gold text-midnight">
-          📱
-        </button>
-        <button id="desktopBtn"
-          class="px-3 py-1 text-xs rounded-full text-gold">
-          💻
-        </button>
-      </div>
-      <button id="nextBtn" class="text-gold text-5xl font-extrabold px-6 py-3">→</button>
     </div>
 
   </div>
 </nav>
+
 
 <script src="js/websites.js"></script>
 </body>

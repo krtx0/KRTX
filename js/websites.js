@@ -1,16 +1,14 @@
 let data = [];
-let index = 0;
+let index = parseInt(localStorage.getItem("portfolioIndex")) || 0;
+
 const isMobile = () => window.matchMedia("(max-width: 768px)").matches;
 
 let mode = isMobile() ? "mobile" : "desktop";
 
 
-const img = document.getElementById("showcaseImage");
+const frame = document.getElementById("showcaseFrame");
 const title = document.getElementById("showcaseTitle");
 const viewer = document.getElementById("viewer");
-
-const mobileBtn = document.getElementById("mobileBtn");
-const desktopBtn = document.getElementById("desktopBtn");
 
 fetch("assets/websites.json")
   .then(res => res.json())
@@ -21,36 +19,27 @@ fetch("assets/websites.json")
 
 function render() {
   const item = data[index];
-  img.src = item[mode];
+  frame.src = item.url;
   title.textContent = item.title;
+  localStorage.setItem("portfolioIndex", index);
+
 
   viewer.scrollTo({ top: 0, behavior: "instant" });
-
-  // toggle styles
-  mobileBtn.classList.toggle("bg-gold", mode === "mobile");
-  mobileBtn.classList.toggle("text-midnight", mode === "mobile");
-  desktopBtn.classList.toggle("bg-gold", mode === "desktop");
-  desktopBtn.classList.toggle("text-midnight", mode === "desktop");
 }
 
-mobileBtn.onclick = () => {
-  mode = "mobile";
-  render();
-};
-
-desktopBtn.onclick = () => {
-  mode = "desktop";
-  render();
-};
 
 document.getElementById("nextBtn").onclick = () => {
   index = (index + 1) % data.length;
-  render();
+localStorage.setItem("portfolioIndex", index);
+render();
+
 };
 
 document.getElementById("prevBtn").onclick = () => {
   index = (index - 1 + data.length) % data.length;
-  render();
+localStorage.setItem("portfolioIndex", index);
+render();
+
 };
 
 window.addEventListener("resize", () => {
@@ -66,33 +55,17 @@ const bottomNav = document.getElementById("bottomNav");
 let lastY = 0;
 let ticking = false;
 
-// DESKTOP / TRACKPAD
-window.addEventListener("wheel", (e) => {
-  if (e.deltaY > 0) {
-    // scrolling DOWN
+viewer.addEventListener("scroll", () => {
+
+  const currentY = viewer.scrollTop;
+
+  if (currentY > lastY) {
+    // scrolling down
     bottomNav.classList.add("hide");
-  } else if (e.deltaY < 0) {
-    // scrolling UP
-    bottomNav.classList.remove("hide");
-  }
-}, { passive: true });
-
-// MOBILE TOUCH
-window.addEventListener("touchstart", (e) => {
-  lastY = e.touches[0].clientY;
-}, { passive: true });
-
-window.addEventListener("touchmove", (e) => {
-  const currentY = e.touches[0].clientY;
-  const diff = lastY - currentY;
-
-  if (diff > 10) {
-    // swipe up → hide
-    bottomNav.classList.add("hide");
-  } else if (diff < -10) {
-    // swipe down → show
+  } else {
+    // scrolling up
     bottomNav.classList.remove("hide");
   }
 
   lastY = currentY;
-}, { passive: true });
+});
