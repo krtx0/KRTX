@@ -136,7 +136,7 @@ class CustomNavbar extends HTMLElement {
         <nav class="nav-links">
           <a href="index.html" class="nav-link">Home</a>
           <a href="index.html#services" class="nav-link" onclick="this.closest('custom-navbar').shadowRoot.querySelector('.nav-links').classList.remove('open')">Services</a>
-          <a href="portfolio.html" class="nav-link">Work</a>
+          <a href="portfolio.html" class="nav-link">Designs</a>
           <a href="websites.html" class="nav-link">Websites</a>
           <a href="index.html#about" class="nav-link" onclick="this.closest('custom-navbar').shadowRoot.querySelector('.nav-links').classList.remove('open')">About</a>
           <a href="index.html#contact" class="nav-link" onclick="this.closest('custom-navbar').shadowRoot.querySelector('.nav-links').classList.remove('open')">Contact</a>

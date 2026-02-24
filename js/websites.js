@@ -5,7 +5,7 @@ const isMobile = () => window.matchMedia("(max-width: 768px)").matches;
 
 let mode = isMobile() ? "mobile" : "desktop";
 
-
+const loader = document.getElementById("loaderOverlay");
 const frame = document.getElementById("showcaseFrame");
 const title = document.getElementById("showcaseTitle");
 const viewer = document.getElementById("viewer");
@@ -18,13 +18,18 @@ fetch("assets/websites.json")
   });
 
 function render() {
+
   const item = data[index];
+
+  // SHOW loader
+  loader.classList.remove("opacity-0");
+
   frame.src = item.url;
   title.textContent = item.title;
+
   localStorage.setItem("portfolioIndex", index);
 
-
-  viewer.scrollTo({ top: 0, behavior: "instant" });
+  viewer.scrollTo({ top: 0 });
 }
 
 
@@ -34,6 +39,12 @@ localStorage.setItem("portfolioIndex", index);
 render();
 
 };
+
+frame.addEventListener("load", () => {
+  loader.classList.add("opacity-0");
+  setTimeout(() => {
+  }, 300);
+});
 
 document.getElementById("prevBtn").onclick = () => {
   index = (index - 1 + data.length) % data.length;
@@ -51,21 +62,3 @@ window.addEventListener("resize", () => {
 });
 
 const bottomNav = document.getElementById("bottomNav");
-
-let lastY = 0;
-let ticking = false;
-
-viewer.addEventListener("scroll", () => {
-
-  const currentY = viewer.scrollTop;
-
-  if (currentY > lastY) {
-    // scrolling down
-    bottomNav.classList.add("hide");
-  } else {
-    // scrolling up
-    bottomNav.classList.remove("hide");
-  }
-
-  lastY = currentY;
-});
