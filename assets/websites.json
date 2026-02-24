@@ -1,20 +1,27 @@
 [
 {
-    "title": "Travel Agency Website",
-    "url": "https://krtx0.github.io/krtxtravel/"
-  },
-  {
-    "title": "Travel Agency 1 Website",
-    "url": "https://krtx0.github.io/krtxtravel1/"
-  },
-  {
     "title": "GYM Website",
     "url": "https://krtx0.github.io/krtxgym/"
   },
+    
   {
     "title": "GYM 1 Website",
     "url": "https://krtx0.github.io/krtxgym1/"
   },
+    {
+    "title": "GYM 2 Website",
+    "url": "https://krtx0.github.io/krtxgym2/"
+  },
+    {
+    "title": "Travel Agency Website",
+    "url": "https://krtx0.github.io/krtxtravel/"
+  },
+    
+  {
+    "title": "Travel Agency 1 Website",
+    "url": "https://krtx0.github.io/krtxtravel1/"
+  },
+
   {
     "title": "Cake Shop Website",
     "url": "https://krtx0.github.io/krtxcake/"
@@ -28,4 +35,5 @@
     "url": "https://krtx0.github.io/krtxdentist/"
   }
 ]
+
 
