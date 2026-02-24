@@ -5,27 +5,22 @@ body {
     scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
+/* Hide scrollbar but allow scrolling */
+body {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
 }
 
-::-webkit-scrollbar-track {
-    background: #0a0a0a;
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
 }
 
-::-webkit-scrollbar-thumb {
-    background: #00f0ff;
-    border-radius: 4px;
-}
+
+
 #showcaseFrame {
   position: relative;
   z-index: 0;
 }
-::-webkit-scrollbar-thumb:hover {
-    background: #bd00ff;
-}
-
 /* Animation classes */
 @keyframes float {
     0%, 100% {
@@ -110,4 +105,5 @@ body {
     transform: translate(0, 0) scale(1);
   }
 }
+
 
