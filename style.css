@@ -5,16 +5,14 @@ body {
     scroll-behavior: smooth;
 }
 
-/* Hide scrollbar but allow scrolling */
-body {
-  overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
+/* Hide scrollbar everywhere */
+* {
+  scrollbar-width: none;
 }
 
-body::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
+*::-webkit-scrollbar {
+  display: none;
 }
-
 
 
 #showcaseFrame {
@@ -105,5 +103,6 @@ body::-webkit-scrollbar {
     transform: translate(0, 0) scale(1);
   }
 }
+
 
 
