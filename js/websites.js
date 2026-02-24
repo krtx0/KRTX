@@ -17,20 +17,37 @@ fetch("assets/websites.json")
     render();
   });
 
+function showLoader() {
+  loader.classList.remove("opacity-0");
+  loader.classList.remove("pointer-events-none");
+}
+
+function hideLoader() {
+  loader.classList.add("opacity-0");
+  loader.classList.add("pointer-events-none");
+}
+
+// fallback timer (fast UX)
+let loadTimeout;
+
 function render() {
 
   const item = data[index];
 
-  // SHOW loader
-  loader.classList.remove("opacity-0");
+  showLoader();
 
   frame.src = item.url;
   title.textContent = item.title;
 
   localStorage.setItem("portfolioIndex", index);
-
   viewer.scrollTo({ top: 0 });
+
+  clearTimeout(loadTimeout);
+  loadTimeout = setTimeout(hideLoader, 900);
 }
+
+// hide instantly when iframe actually finishes
+frame.addEventListener("load", hideLoader);
 
 
 document.getElementById("nextBtn").onclick = () => {
@@ -39,12 +56,6 @@ localStorage.setItem("portfolioIndex", index);
 render();
 
 };
-
-frame.addEventListener("load", () => {
-  loader.classList.add("opacity-0");
-  setTimeout(() => {
-  }, 300);
-});
 
 document.getElementById("prevBtn").onclick = () => {
   index = (index - 1 + data.length) % data.length;
@@ -62,3 +73,4 @@ window.addEventListener("resize", () => {
 });
 
 const bottomNav = document.getElementById("bottomNav");
+
